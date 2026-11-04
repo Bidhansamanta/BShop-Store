@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import { useEffect, useState } from "react";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import AddToCard from "./components/AddToCard";
 
 function App() {
   const [product, setProduct] = useState([]);
@@ -29,9 +30,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product" element={<Product product={product} />} />
-        </Route>
+          <Route path="/addtocard" element={<AddToCard product={product}  />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+        </Route>
       </Routes>
     </>
   );
