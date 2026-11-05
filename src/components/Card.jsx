@@ -1,32 +1,15 @@
 function Card({ item }) {
-  const {
-    title,
-    description,
-    category,
-    price,
-    discountPercentage,
-    thumbnail,
-    rating,
-  } = item;
-
-  const discountedPrice = (price - (price * discountPercentage) / 100).toFixed(
-    2,
-  );
+  const { id, title, description, category, price, image, rating } = item;
 
   return (
     <div className="group max-w-sm bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
       {/* Product Image */}
-      <div className="relative h-64 overflow-hidden bg-gray-100">
+      <div className="relative h-64 overflow-hidden bg-gray-100 p-5">
         <img
-          src={thumbnail}
+          src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-500"
+          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
         />
-
-        {/* Discount Badge */}
-        <span className="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
-          -{Math.round(discountPercentage)}% OFF
-        </span>
 
         {/* Wishlist */}
         <button className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-red-500 hover:text-white transition">
@@ -42,7 +25,7 @@ function Card({ item }) {
           </span>
 
           <span className="text-sm text-yellow-500 font-semibold">
-            ★ {rating}
+            {rating.count} ★ {rating.rate}
           </span>
         </div>
 
@@ -57,10 +40,11 @@ function Card({ item }) {
         {/* Price */}
         <div className="flex items-center gap-3 mb-5">
           <span className="text-2xl font-bold text-gray-900">
-            ${discountedPrice}
+            ${price.toFixed(2)}
           </span>
-
-          <span className="text-sm text-gray-400 line-through">${price}</span>
+          <span className="text-xl line-through font-semibold text-gray-500">
+            ${Math.round(price*price/100)}
+          </span>
         </div>
 
         {/* Add to Cart */}

@@ -2,10 +2,9 @@ import { useContext } from "react";
 import Card from "../components/Card";
 import { ProductContext } from "../context/ProductContext";
 
-
 function Product() {
   const product = useContext(ProductContext);
- 
+
   return (
     <>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-10">
