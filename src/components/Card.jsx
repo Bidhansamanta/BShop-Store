@@ -14,7 +14,7 @@ function Card({ item }) {
   );
 
   return (
-    <div className="group max-w-sm bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+    <div className="group max-w-sm bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300" >
       {/* Product Image */}
       <div className="relative h-64 overflow-hidden bg-gray-100">
         <img
