@@ -4,9 +4,11 @@ function Header() {
   return (
     <>
       <header className="flex flex-col md:flex-row justify-around items-center shadow-md min-h-15 py-4 px-4 gap-4 md:gap-2 sticky top-0 z-50 bg-white">
-        <h1 className="text-3xl font-bold text-red-900">
-          B<span className="text-black">Shop</span>
-        </h1>
+        <NavLink to="/">
+          <h1 className="text-3xl font-bold text-red-900">
+            B<span className="text-black">Shop</span>
+          </h1>
+        </NavLink>
 
         <nav>
           <ul className="flex flex-wrap justify-center items-center gap-5 sm:gap-8 md:gap-6 lg:gap-10 uppercase font-bold text-sm sm:text-base">
@@ -51,16 +53,6 @@ function Header() {
                 }
               >
                 Product
-              </NavLink>
-            </li>
-            <li className="cursor-pointer">
-              <NavLink
-                to="/addtocard"
-                className={({ isActive }) =>
-                  isActive ? "text-red-600" : "text-black"
-                }
-              >
-                Add To Card
               </NavLink>
             </li>
           </ul>
