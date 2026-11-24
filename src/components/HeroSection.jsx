@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 function HeroSection() {
   const slides = [
@@ -8,8 +9,7 @@ function HeroSection() {
       description:
         "Discover the latest fashion trends and upgrade your everyday style with our exclusive collection.",
       button: "Shop Now",
-      image:
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
     },
     {
       title: "Style That Defines You",
@@ -17,8 +17,7 @@ function HeroSection() {
       description:
         "Find your perfect style with premium clothing designed for comfort, confidence, and everyday wear.",
       button: "Explore Collection",
-      image:
-        "https://images.unsplash.com/photo-1483985988355-763728e1935b",
+      image: "https://images.unsplash.com/photo-1483985988355-763728e1935b",
     },
     {
       title: "Exclusive Deals Just For You",
@@ -26,8 +25,7 @@ function HeroSection() {
       description:
         "Discover amazing products, unbeatable prices, and the best shopping experience in one place.",
       button: "Discover More",
-      image:
-        "https://images.unsplash.com/photo-1445205170230-053b83016050",
+      image: "https://images.unsplash.com/photo-1445205170230-053b83016050",
     },
   ];
 
@@ -51,7 +49,6 @@ function HeroSection() {
 
   return (
     <section className="relative w-full h-[450px] md:h-[550px] overflow-hidden">
-
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-700"
@@ -66,7 +63,6 @@ function HeroSection() {
       {/* Hero Content */}
       <div className="relative z-10 h-full flex items-center px-6 md:px-16 lg:px-24">
         <div className="max-w-2xl text-white">
-
           <p className="text-sm md:text-base uppercase tracking-[3px] mb-4 text-gray-200">
             {slides[currentSlide].subtitle}
           </p>
@@ -79,10 +75,11 @@ function HeroSection() {
             {slides[currentSlide].description}
           </p>
 
-          <button className="bg-white text-black px-7 py-3 rounded-md font-semibold hover:bg-gray-200 transition duration-300">
-            {slides[currentSlide].button}
-          </button>
-
+          <NavLink to="/product">
+            <button className="bg-white text-black px-7 py-3 rounded-md font-semibold hover:bg-gray-200 transition duration-300">
+              {slides[currentSlide].button}
+            </button>
+          </NavLink>
         </div>
       </div>
 
@@ -109,14 +106,11 @@ function HeroSection() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`h-2 rounded-full transition-all duration-300 ${
-              currentSlide === index
-                ? "w-8 bg-white"
-                : "w-2 bg-white/50"
+              currentSlide === index ? "w-8 bg-white" : "w-2 bg-white/50"
             }`}
           ></button>
         ))}
       </div>
-
     </section>
   );
 }
